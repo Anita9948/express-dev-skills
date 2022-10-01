@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%=title%></title>
   </head>
-  <body>
+  <body id="bodyIndex">
     <h1><%=title%></h1>
 
     <% skills.forEach(skill => {%>
@@ -15,9 +15,9 @@
       <h2><%=skill.skill%></h2>
     </a>
     <%}); %>
-    <a href="/"><button>Back</button></a>
+    <a href="/"><button id="buttonIndex">Back</button></a>
     <div>
-      <a href="/skills/new"><button>Add Skill</button></a>
+      <a href="/skills/new"><button id="buttonIndexSkill">Add Skill</button></a>
     </div>
   </body>
 </html>
