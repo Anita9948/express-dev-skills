@@ -8,18 +8,18 @@ const skills = [
 module.exports = {
   getAll,
   getOne,
-  create
+  create,
 };
 function getAll() {
   return skills;
 }
 
 function getOne(id) {
-  console.log(id);
   return getAll().find((s) => s.id === id);
 }
 
 function create(skill) {
   skill.id = Date.now();
   skills.push(skill);
+  return skill;
 }

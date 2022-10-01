@@ -11,6 +11,13 @@
     <h1><%=skill.skill%></h1>
     <h2><%=skill.id%></h2>
     <h3><%=skill.leveofExpertise%></h3>
-    <a href="/skills">Back</a>
+    <a href="/skills"><button>Back</button></a>
+    <form
+      action="/skills/<%=skill.id%>?_method=DELETE"
+      class="delete-form"
+      method="POST"
+    >
+      <button>DELETE</button>
+    </form>
   </body>
 </html>

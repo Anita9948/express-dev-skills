@@ -5,6 +5,7 @@ module.exports = {
   new: newSkill,
   show,
   create,
+  delete: deleteSkill,
 };
 
 function index(req, res) {
@@ -17,14 +18,17 @@ function newSkill(req, res) {
 }
 
 function show(req, res) {
-  console.log(req.params.id);
   let skill = Skill.getOne(parseInt(req.params.id));
-  console.log(skill);
   res.render("skills/show", { title: "Showing Skill", skill });
 }
 
 function create(req, res) {
-  console.log(req.body)
-  // Skill.push(skill);
-  res.redirect("/skills/new");
+  let skill = Skill.create(req.body);
+  res.redirect(`/skills/${skill.id}`);
+}
+
+function deleteSkill(id) {
+  id = parseInt(id);
+  const idx = Skill.findIndex( skill => skill.id === id)
+  Skill.splice(idx, 1)
 }
