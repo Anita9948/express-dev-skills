@@ -27,8 +27,7 @@ function create(req, res) {
   res.redirect(`/skills/${skill.id}`);
 }
 
-function deleteSkill(id) {
-  id = parseInt(id);
-  const idx = Skill.findIndex( skill => skill.id === id)
-  Skill.splice(idx, 1)
+function deleteSkill(req, res) {
+  Skill.deleteSkill(req.params.id);
+  res.redirect("/skills");
 }
